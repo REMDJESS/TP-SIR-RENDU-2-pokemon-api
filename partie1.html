@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <script src="js/angular.min.js"></script>
+</head>
+
+<body ng-app="pokedex">
+
+    <div class="container">
+        <h1>Pokésir</h1>
+        <label>Question 1 veuillez saisir un texte </label>
+        <input type="text" ng-model="contenu">
+        <br> Vous avez saisi: <em>{{contenu}}</em>
+        <hr>
+        <div ng-controller="c1">
+            <label> Nom : </label>
+            <input type="text" name="nom" ng-model="nom" />
+            <label> ID : </label>
+            <input type="text" name="nom" ng-model="id" />
+            <select name="select" ng-model="selectionne">
+				 <option ng-repeat="pokemon in pokemons | filter:nom | filter:id" ng-value="{{pokemon.id}}">{{pokemon.name}}</option>
+			</select>
+            <h3>Le numero du pokémon selectionné est : {{selectionne}} </h3>
+
+            <input type="button" value="GO" ng-click="go()" />
+
+        </div>
+
+        <!-- Pokémon information -->
+        <div></div>
+        <!-- Dependencies -->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/angular.min.js"></script>
+        <script src="js/angular-resource.min.js"></script>
+
+        <!-- Pokedex app -->
+        <script src="js/pokedex1.js"></script>
+
+
+</body>
+
+</html>
