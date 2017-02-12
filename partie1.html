@@ -22,11 +22,12 @@
             <label> ID : </label>
             <input type="text" name="nom" ng-model="id" />
             <select name="select" ng-model="selectionne">
-				 <option ng-repeat="pokemon in pokemons | filter:nom | filter:id" ng-value="{{pokemon.id}}">{{pokemon.name}}</option>
+				 <option ng-repeat="pokemon in pokemons | filter:nom | filter:id" ng-value="{{pokemon.nom}}">{{pokemon.name}}</option>
 			</select>
             <h3>Le numero du pokémon selectionné est : {{selectionne}} </h3>
 
-            <input type="button" value="GO" ng-click="go()" />
+          
+            <button ng-click="$log.log(selectionne)">GO</button>
 
         </div>
 
