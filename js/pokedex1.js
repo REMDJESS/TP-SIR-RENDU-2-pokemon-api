@@ -19,8 +19,6 @@
          { id: "016 ", name: "Roucool" }
 
      ];
-
-     $scope.go = function() {
-         $log.debug('C\'est parti !');
-     };
+ $scope.$log = $log;
+     $scope.nom = '';
  }]);
