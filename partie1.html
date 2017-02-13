@@ -21,8 +21,8 @@
             <input type="text" name="nom" ng-model="nom" />
             <label> ID : </label>
             <input type="text" name="nom" ng-model="id" />
-            <select name="select" ng-model="selectionne">
-				 <option ng-repeat="pokemon in pokemons | filter:nom | filter:id" ng-value="{{pokemon.nom}}">{{pokemon.name}}</option>
+           <select name="select" ng-model="selectionne">
+				 <option ng-repeat="pokemon in pokemons | filter:nom | filter:id" value="{{pokemon.resource_uri}}">{{pokemon.name}}</option>
 			</select>
             <h3>Le numero du pokémon selectionné est : {{selectionne}} </h3>
 
