@@ -6,7 +6,7 @@
  // pokeApp.config(['$resourceProvider', function($resourceProvider) {
  //     $resourceProvider.defaults.stripTrailingSlashes = false;
  // }]);
- pokeApp.controller('c1', ['$scope', '$log', function($scope, $log) {
+ pokeApp.controller('c1', ['$scope', '$log','$http', function($scope, $log, $http) {
      $scope.pokemons = [
          { id: "003", name: "Florizarre" },
          { id: "004", name: "Salamèche" },
@@ -19,6 +19,15 @@
          { id: "016 ", name: "Roucool" }
 
      ];
- $scope.$log = $log;
-     $scope.nom = '';
+ //$scope.$log = $log;
+     //$scope.nom = '';
+  $http.get("http://pokeapi.co/api/v1/pokedex/1").
+     success(function(data, status) {
+         $scope.pokemons = data.pokemon;
+         $log.info(data);
+         $scope.$log = $log
+     }).
+     error(function(data, status) {
+         document.getElementById("erreur").innerHTML = "Erreur lors de l'appel du json"
+     });
  }]);
