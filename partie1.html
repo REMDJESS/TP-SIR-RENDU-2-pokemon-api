@@ -16,17 +16,32 @@
         <input type="text" ng-model="contenu">
         <br> Vous avez saisi: <em>{{contenu}}</em>
         <hr>
+
+
         <div ng-controller="c1">
             <label> Nom : </label>
-            <input type="text" name="nom" ng-model="nom" />
+            <input type="text" name="nom" ng-model="nom" placeholder="saisir nom" />
             <label> ID : </label>
-            <input type="text" name="nom" ng-model="id" />
-           <select name="select" ng-model="selectionne">
+            <input type="text" name="nom" ng-model="id" placeholder="saisir ID" />
+            <select name="select" ng-model="selected">
+				 <option ng-repeat="pokemon in poke | filter:nom | filter: id" value="{{pokemon.name}}">{{pokemon.name}}</option>
+			</select>
+            <h3>Le pokémon selectionné est : {{selected}} </h3>
+
+            <hr>
+
+        </div>
+        <div ng-controller="c1">
+            <label> Nom : </label>
+            <input type="text" name="nom" ng-model="nom" placeholder="saisir nom" />
+            <label> ID : </label>
+            <input type="text" name="nom" ng-model="id" placeholder="saisir ID" />
+            <select name="select" ng-model="selectionne">
 				 <option ng-repeat="pokemon in pokemons | filter:nom | filter:id" value="{{pokemon.resource_uri}}">{{pokemon.name}}</option>
 			</select>
-            <h3>Le numero du pokémon selectionné est : {{selectionne}} </h3>
+            <h3>Le chemin du pokémon selectionné est : {{selectionne}} </h3>
 
-          
+
             <button ng-click="$log.log(selectionne)">GO</button>
 
         </div>
