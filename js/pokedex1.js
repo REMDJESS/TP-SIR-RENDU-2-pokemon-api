@@ -6,22 +6,23 @@
  // pokeApp.config(['$resourceProvider', function($resourceProvider) {
  //     $resourceProvider.defaults.stripTrailingSlashes = false;
  // }]);
- pokeApp.controller('c1', ['$scope', '$log','$http', function($scope, $log, $http) {
-     $scope.pokemons = [
-         { id: "003", name: "Florizarre" },
-         { id: "004", name: "Salamèche" },
-         { id: "005", name: "Reptincel" },
-         { id: "007", name: "Carapuce" },
-         { id: "009", name: "Tortank" },
-         { id: "010", name: "Chenipan" },
+ pokeApp.controller('c1', ['$scope', '$log', '$http', function($scope, $log, $http) {
+     $scope.poke = [
+         { id: "3", name: "Florizarre" },
+         { id: "4", name: "Salamèche" },
+         { id: "5", name: "Reptincel" },
+         { id: "7", name: "Carapuce" },
+         { id: "9", name: "Tortank" },
+         { id: "10", name: "Chenipan" },
          { id: "012", name: "Papilusion" },
          { id: "015", name: "Dardargnan" },
          { id: "016 ", name: "Roucool" }
 
      ];
- //$scope.$log = $log;
+     //$scope.$log = $log;
      //$scope.nom = '';
-  $http.get("http://pokeapi.co/api/v1/pokedex/1").
+     // utilisation du $http
+     $http.get("http://pokeapi.co/api/v1/pokedex/1").
      success(function(data, status) {
          $scope.pokemons = data.pokemon;
          $log.info(data);
